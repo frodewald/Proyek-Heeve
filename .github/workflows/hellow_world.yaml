@@ -1,4 +1,4 @@
-name: hello world workflow
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -10,17 +10,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  hello:
+  deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repository
       - uses: actions/checkout@v2
-      - name: hello world
-        run: echo "Hello World"
-        shell: bash
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACCESS_TOKEN }}
+          publish_dir: ./public
   
-  goodbye:
-    runs-on: ubuntu-latest
-    steps:
-      - name: goodbye world
-        run: echo "Goodbye World"
-        shell: bash
