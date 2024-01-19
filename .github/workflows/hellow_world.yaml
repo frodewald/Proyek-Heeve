@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
   deploy:
@@ -12,6 +12,11 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
+
+    - name: Set up Git
+      run: |
+        git config --global user.email "frodewaldgrimbert777@gmail.com"
+        git config --global user.name "Frodewald Grimbert"
 
     - name: Deploy to GitHub Pages
       run: |
