@@ -23,7 +23,7 @@ jobs:
         if [ -n "$(git status --porcelain)" ]; then
           git add .
           git commit -m "Update GitHub Pages"
-          git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" main:gh-pages
+          git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" main:main
         else
           echo "No changes to commit."
         fi
